@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Adubação Verde — Guia Prático</title>
+<style>
+  /* Estilo simples, limpo e responsivo */
+  :root{
+    --verde-escuro:#2c7a7b;
+    --verde-claro:#d9f0eb;
+    --fundo:#f0f7f5;
+    --branco:#ffffff;
+    --texto:#214f4d;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background:var(--fundo);
+    color:var(--texto);
+    line-height:1.6;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  header{
+    width:100%;
+    max-width:1100px;
+    background:linear-gradient(90deg,var(--verde-claro),#e6f7f2);
+    border-radius:10px;
+    padding:28px 22px;
+    box-shadow:0 6px 18px rgba(34,50,50,0.06);
+    text-align:center;
+    margin-bottom:18px;
+  }
+  header h1{margin:0 0 6px;font-size:1.6rem;color:var(--verde-escuro)}
+  header p{margin:0;color:#145a56;font-size:0.98rem}
+
+  main{
+    width:100%;
+    max-width:1100px;
+  }
+
+  .card{
+    background:var(--branco);
+    border-radius:10px;
+    padding:18px 20px;
+    box-shadow:0 6px 18px rgba(34,50,50,0.04);
+    margin-bottom:16px;
+  }
+
+  h2{color:var(--verde-escuro);margin:0 0 10px;font-size:1.25rem}
+  h3{color:#145a56;margin:12px 0 8px;font-size:1.05rem}
+  p{margin:0 0 10px}
+  ul{margin:8px 0 12px 20px}
+  li{margin-bottom:6px}
+
+  .table{
+    width:100%;
+    overflow:auto;
+    margin-top:8px;
+  }
+  table{border-collapse:collapse;width:100%;min-width:520px}
+  th,td{border:1px solid #e0efe9;padding:8px 10px;text-align:left}
+  th{background:#e8f8f3;color:var(--verde-escuro)}
+
+  .tips{
+    background:linear-gradient(180deg,#f7fff9,#f3fff7);
+    border:1px solid #d8efe7;
+    padding:12px;
+    border-radius:8px;
+  }
+
+  .small{font-size:0.95rem;color:#23514f}
+
+  /* botão voltar */
+  .back{
+    display:inline-block;
+    margin-top:10px;
+    background:var(--verde-escuro);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:transform .15s,opacity .15s;
+  }
+  .back:hover{transform:translateY(-3px);opacity:0.95}
+
+  /* Responsivo */
+  @media (max-width:900px){
+    header h1{font-size:1.4rem}
+    .card{padding:14px}
+    th,td{font-size:0.95rem}
+  }
+  @media (max-width:520px){
+    body{padding:12px}
+    header{padding:18px}
+    h2{font-size:1.05rem}
+    header p{font-size:0.9rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Adubação Verde</h1>
+  <p>Guia prático: definição, benefícios, espécies e manejo para sua propriedade</p>
+</header>
+
+<main>
+
+  <article class="card">
+    <h2>O que é adubação verde?</h2>
+    <p>Adubação verde consiste no cultivo intencional de plantas (leguminosas, gramíneas ou misturas) para, em seguida, incorporar sua biomassa ao solo com o objetivo de melhorar fertilidade, estrutura e saúde do solo.</p>
+  </article>
+
+  <article class="card">
+    <h2>Objetivos e benefícios</h2>
+    <ul>
+      <li><strong>Fixação de nitrogênio</strong> (quando leguminosas), reduzindo necessidade de N mineral.</li>
+      <li><strong>Aumento da matéria orgânica</strong> e melhoria da estrutura do solo.</li>
+      <li><strong>Proteção contra erosão</strong>, conservação de água e controle de plantas daninhas.</li>
+      <li><strong>Melhora da microbiota</strong> do solo e atração de organismos benéficos.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>Espécies comuns</h2>
+    <p class="small">Escolha conforme clima e objetivo (fixar N, produzir biomassa, controlar nematoides, etc.).</p>
+    <div class="table">
+      <table>
+        <thead>
+          <tr><th>Tipo</th><th>Espécies (ex.)</th><th>Uso principal</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Leguminosas</td><td>Crotalária, Mucuna, Calopogônio, Vicia</td><td>Fixação de N, biomassa</td></tr>
+          <tr><td>Gramíneas</td><td>Aveia, Centeio, Milheto, Sorgo</td><td>Cobertura, palhada</td></tr>
+          <tr><td>Híbridos / Misturas</td><td>Leguminosa + Gramínea</td><td>Balancear N e biomassa</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <article class="card">
+    <h2>Manejo: quando semear e como terminar</h2>
+    <ul>
+      <li><strong>Quando semear:</strong> logo após a colheita da cultura principal ou no período de pousio; aproveite a umidade disponível.</li>
+      <li><strong>Quando encerrar:</strong> em geral antes do florescimento pleno (quando leguminosas acumulam N), deixando tempo para decomposição antes do plantio da próxima cultura.</li>
+      <li><strong>Métodos de término:</strong> corte e incorporação, rolamento/crimpagem (plantio direto) ou deixar como cobertura (mulch).</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>Taxas de semeadura (orientativas)</h2>
+    <ul>
+      <li>Crotalária: 15–30 kg/ha</li>
+      <li>Mucuna: 40–80 kg/ha</li>
+      <li>Aveia: 80–120 kg/ha</li>
+      <li>Mix (leguminosa+gramínea): ajustar conforme recomendação local</li>
+    </ul>
+    <p class="small">(Ajuste conforme região, variedade e recomendação técnica local.)</p>
+  </article>
+
+  <article class="card">
+    <h2>Dicas práticas</h2>
+    <div class="tips">
+      <ul>
+        <li>Use misturas para maior estabilidade: gramínea + leguminosa.</li>
+        <li>Inocule leguminosas com rizóbio adequado quando necessário.</li>
+        <li>Planeje o término para não competir com a próxima cultura por água.</li>
+        <li>Evite espécies potencialmente invasoras sem controle.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="card">
+    <h2>Riscos e cuidados</h2>
+    <ul>
+      <li>Incorporações de alta biomassa em solo frio podem imobilizar N temporariamente.</li>
+      <li>Espécies erradas podem favorecer pragas ou ser invasivas.</li>
+      <li>Monitorar umidade/competição com culturas subsequentes.</li>
+    </ul>
+  </article>
+
+  <article class="card">
+    <h2>Exemplo prático</h2>
+    <p>No trópico: semear <em>mucuna</em> após colheita de milho; permitir 60–90 dias de crescimento; cortar e rolar; semear feijão direto na palhada (ou incorporar conforme sistema).</p>
+  </article>
+
+  <article class="card">
+    <h2>Resumo</h2>
+    <ul>
+      <li>Adubação verde é prática de baixo custo que melhora solo e reduz insumos.</li>
+      <li>Escolher espécies e manejo adequados é essencial para obter os benefícios.</li>
+      <li>Combinar com inoculação, rotação e conservação do solo aumenta a eficiência.</li>
+    </ul>
+  </article>
+
+  <a href="../index.html" class="back">⬅ Voltar</a>
+
+</main>
+
+</body>
+</html>
