@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🌿 Classificação Köppen</title>
+<title>Classificacao Koppen</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:Arial,sans-serif;background:#f0f7f5;color:#2c7a7b;line-height:1.6;padding:20px;}
 header{text-align:center;background:#d9f0eb;padding:30px 20px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);margin-bottom:30px;}
-header h1{font-size:2em;margin-bottom:10px;}
-header p{font-size:1.1em;color:#1f5f61;}
+header h1,h2{font-size:2em;margin-bottom:10px;}
+header p{font-size:1.1em;color:#1f5f61;margin-bottom:12px;}
 main{max-width:900px;margin:0 auto;}
 section{background:white;padding:25px 30px;border-radius:10px;box-shadow:0 4px 8px rgba(0,0,0,0.1);margin-bottom:25px;}
 h2{color:#2c7a7b;font-size:1.8em;margin-bottom:15px;}
@@ -20,87 +20,95 @@ li{margin-bottom:6px;}
 a{text-decoration:none;color:#1f5f61;}
 a:hover{text-decoration:underline;}
 strong{color:#145a56;}
-@media(max-width:768px){body{padding:15px;}header h1{font-size:1.7em;}header p{font-size:1em;}h2{font-size:1.5em;}h3{font-size:1.2em;}section{padding:15px 20px;}}
+@media(max-width:768px){body{padding:15px;}header h1,h2{font-size:1.7em;}header p{font-size:1em;}h2{font-size:1.5em;}h3{font-size:1.2em;}section{padding:15px 20px;}}
 </style>
 </head>
 <body>
 <header>
-  <h2>Classificação Climática de Köppen</h2>
+<h2>Classificacao Climática de Koppen</h2>
+<p>O sistema de Koppen organiza climas da Terra com base em temperatura media e precipitacao anual, relacionando clima e vegetacao.</p>
+</header>
 
-  <h3>1. O que é a Classificação Climática de Köppen</h3>
-  <p>A classificação climática de Köppen é um sistema desenvolvido pelo climatologista alemão Wladimir Köppen no início do século XX. Ela organiza os climas da Terra em diferentes tipos com base em temperatura média e precipitação anual, permitindo identificar padrões climáticos globais e regionais.</p>
-  <p>O objetivo principal é relacionar o clima com a vegetação, já que diferentes tipos de clima suportam diferentes ecossistemas.</p>
+<main>
+<section>
+<h3>1. O que e a Classificacao Climática de Koppen</h3>
+<p>Desenvolvido por Wladimir Koppen no inicio do sec XX, o sistema permite identificar padroes climaticos globais e regionais.</p>
+<p>O objetivo principal e relacionar clima e vegetacao, ja que diferentes tipos de clima suportam diferentes ecosistemas.</p>
+</section>
 
-  <h3>2. Princípios do Sistema de Köppen</h3>
+<section>
+<h3>2. Principios do Sistema de Koppen</h3>
+<ul>
+<li>Temperatura media mensal</li>
+<li>Precipitacao media mensal e anual</li>
+<li>Estacao seca ou chuvosa</li>
+</ul>
+<p>Com isso, define grandes grupos climaticos, cada um subdividido em subtipos de acordo com temperatura e regime de chuvas.</p>
+</section>
+
+<section>
+<h3>3. Principais Grupos Climaticos</h3>
+<ul>
+<li><strong>A – Climas Tropicais</strong>
   <ul>
-    <li>Temperatura média mensal</li>
-    <li>Precipitação média mensal e anual</li>
-    <li>Estação seca ou chuvosa</li>
-  </ul>
-  <p>Com isso, define grandes grupos climáticos, cada um subdividido em subtipos de acordo com temperatura e regime de chuvas.</p>
-
-  <h3>3. Principais Grupos Climáticos</h3>
-  <ul>
-    <li><strong>A – Climas Tropicais</strong>
+    <li>Temperatura media mensal &gt; 18°C</li>
+    <li>Alta pluviosidade, com estacoes chuvosas ou relativamente secas</li>
+    <li>Subtipos:
       <ul>
-        <li>Temperatura média mensal > 18°C</li>
-        <li>Alta pluviosidade, com estações chuvosas ou relativamente secas</li>
-        <li>Subtipos:
-          <ul>
-            <li>Af (Tropical úmido): chuva abundante o ano todo</li>
-            <li>Am (Tropical monçônico): curta estação seca</li>
-            <li>Aw/As (Tropical de savana): estação seca mais prolongada</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><strong>B – Climas Secos</strong>
-      <ul>
-        <li>Precipitação anual insuficiente para compensar evaporação</li>
-        <li>Subtipos:
-          <ul>
-            <li>BW (Desértico)</li>
-            <li>BS (Semiárido ou estepe)</li>
-          </ul>
-        </li>
-        <li>Letras minúsculas indicam temperatura: h (quente) e k (frio)</li>
-      </ul>
-    </li>
-    <li><strong>C – Climas Temperados</strong>
-      <ul>
-        <li>Temperatura média do mês mais frio entre -3°C e 18°C</li>
-        <li>Subtipos:
-          <ul>
-            <li>Cf (Temperado úmido)</li>
-            <li>Cs (Mediterrâneo)</li>
-            <li>Cw (Temperado com inverno seco)</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><strong>D – Climas Frios (Continental)</strong>
-      <ul>
-        <li>Temperatura média do mês mais frio < -3°C</li>
-        <li>Subtipos:
-          <ul>
-            <li>Df: sem estação seca</li>
-            <li>Dw: inverno seco</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><strong>E – Climas Polares</strong>
-      <ul>
-        <li>Temperatura média do mês mais quente < 10°C</li>
-        <li>Subtipos:
-          <ul>
-            <li>ET (Tundra): vegetação rasteira e arbustos</li>
-            <li>EF (Frio polar ou glacial): sem vegetação</li>
-          </ul>
-        </li>
+        <li>Af (Tropical humido): chuva abundante o ano todo</li>
+        <li>Am (Tropical monsonico): curta estacao seca</li>
+        <li>Aw/As (Tropical de savana): estacao seca mais prolongada</li>
       </ul>
     </li>
   </ul>
+</li>
+<li><strong>B – Climas Secos</strong>
+  <ul>
+    <li>Precipitacao anual insuficiente para compensar evaporacao</li>
+    <li>Subtipos:
+      <ul>
+        <li>BW (Desertico)</li>
+        <li>BS (Semiarido ou estepe)</li>
+      </ul>
+    </li>
+    <li>Letras minusculas indicam temperatura: h (quente) e k (frio)</li>
+  </ul>
+</li>
+<li><strong>C – Climas Temperados</strong>
+  <ul>
+    <li>Temperatura media do mes mais frio entre -3°C e 18°C</li>
+    <li>Subtipos:
+      <ul>
+        <li>Cf (Temperado humido)</li>
+        <li>Cs (Mediterraneo)</li>
+        <li>Cw (Temperado com inverno seco)</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li><strong>D – Climas Frios (Continental)</strong>
+  <ul>
+    <li>Temperatura media do mes mais frio &lt; -3°C</li>
+    <li>Subtipos:
+      <ul>
+        <li>Df: sem estacao seca</li>
+        <li>Dw: inverno seco</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+<li><strong>E – Climas Polares</strong>
+  <ul>
+    <li>Temperatura media do mes mais quente &lt; 10°C</li>
+    <li>Subtipos:
+      <ul>
+        <li>ET (Tundra): vegetacao rasteira e arbustos</li>
+        <li>EF (Frio polar ou glacial): sem vegetacao</li>
+      </ul>
+    </li>
+  </ul>
+</li>
+</ul>
 </section>
 </main>
 </body>
