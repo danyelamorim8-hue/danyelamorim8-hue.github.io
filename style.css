@@ -1,98 +1,175 @@
-/* Reset básico */
-* {
+/* ===== Fundo e Container ===== */
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #000;
+}
+
+/* ===== Estilo Base ===== */
+body {
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Corpo da página */
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #f0f7f5; /* Verde bem claro de fundo */
-  color: #2c7a7b;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Cabeçalho */
 header {
+  background: #0056a6;
+  color: #fff;
+  padding: 15px;
   text-align: center;
-  padding: 40px 20px 20px 20px;
-  background: #d9f0eb; /* Verde suave */
-  width: 100%;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  border-radius: 0 0 8px 8px;
 }
 
-header h1 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
 }
 
-header p {
-  font-size: 1.2em;
-  color: #1f5f61;
+article {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  white-space: pre-line;
 }
 
-/* Container de projetos */
-.projetos-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  padding: 40px 20px;
-  max-width: 1200px;
-  width: 100%;
-}
-
-/* Botões de projeto */
-.projeto-btn {
-  background: #2c7a7b; /* Verde escuro */
-  color: white;
-  text-decoration: none;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
-  transition: transform 0.3s, background 0.3s;
+/* ===== Botão Moderno ===== */
+.button {
+  height: 55px;
+  width: 180px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 160px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
+  background: linear-gradient(90deg, #fdec53, #f441a5, #b81fff, #5f03f4);
+  background-size: 400%;
+  animation: gradientAnimate 6s ease infinite;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin: auto;
 }
 
-.projeto-btn:hover {
-  background: #1f5f61; /* Verde mais escuro */
-  transform: translateY(-5px);
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(255, 200, 50, 0.7), 0 0 40px rgba(255, 50, 150, 0.4);
+  animation: gradientAnimate 3s ease infinite;
 }
 
-/* Título dentro do botão */
-.projeto-btn h3 {
-  margin-bottom: 12px;
-  font-size: 1.4em;
+.button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: inherit;
+  filter: blur(25px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 }
 
-/* Descrição dentro do botão */
-.projeto-btn p {
-  font-size: 0.95em;
-  line-height: 1.3em;
+.button:hover::before {
+  opacity: 0.6;
+  animation: gradientAnimate 3s linear infinite;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  .projetos-container {
-    grid-template-columns: 1fr;
-    padding: 30px 15px;
-  }
+.button span {
+  position: relative;
+  z-index: 1;
+}
 
-  header h1 {
-    font-size: 2em;
-  }
+@keyframes gradientAnimate {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-  header p {
-    font-size: 1em;
-  }
+/* ===== Tema Escuro ===== */
+body.dark {
+  background: #181a1b;
+  color: #eaeaea;
+}
 
-  .projeto-btn {
-    height: auto;
-    padding: 20px;
-  }
+body.dark header {
+  background: #222;
+}
+
+body.dark article {
+  background: #242526;
+  color: #eaeaea;
+}
+
+body.dark input, body.dark select {
+  background: #333;
+  color: #eaeaea;
+  border: 1px solid #555;
+}
+
+/* ===== Estilo Cyber White ===== */
+.cyber-box {
+  position: relative;
+  max-width: 600px;
+  margin: 30px auto;
+  font-family: monospace;
+  padding: 20px;
+  background: #000;
+  border: 2px solid #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+.cyber-box input, .cyber-box select {
+  width: 100%;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  border: 2px solid #fff;
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 8px;
+}
+
+.cyber-box label {
+  color: #fff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.cyber-box select {
+  margin-top: 12px;
+}
+
+/* ===== Meteoros ===== */
+.meteor {
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  background: orange;
+  border-radius: 50%;
+  opacity: 0.9;
+  pointer-events: none;
 }
