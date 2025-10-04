@@ -1,1 +1,194 @@
+function adicionarArtigo() {
+  const titulo = document.getElementById("titulo").value.trim();
+  const conteudo = document.getElementById("conteudo").value.trim();
+  const lista = document.getElementById("listaArtigos");
+
+  if (!titulo || !conteudo) {
+    alert("Preencha o título e o conteúdo!");
+    return;
+  }
+  
+  if (!titulo || !conteudo) {
+    alert("Preencha o título e o conteúdo!");
+    return;
+  }
+
+  // Adiciona na tela
+  adicionarArtigoNaTela(titulo, conteudo);
+
+  // Salva no LocalStorage
+  salvarArtigo(titulo, conteudo);
+
+  // Limpa os campos
+  document.getElementById("titulo").value = "";
+  document.getElementById("conteudo").value = "";
+}
+
+// Adiciona artigo na tela (reaproveitado para carregar do LocalStorage)
+function adicionarArtigoNaTela(titulo, conteudo) {
+  const lista = document.getElementById("listaArtigos");
+
+  const artigo = document.createElement("article");
+  artigo.classList.add("artigo");
+
+  const tituloEl = document.createElement("h3");
+  tituloEl.innerText = titulo;
+
+  const conteudoEl = document.createElement("p");
+  conteudoEl.innerText = conteudo;
+
+  const botoes = document.createElement("div");
+  botoes.classList.add("botoes");
+
+  const btnEditar = document.createElement("button");
+  btnEditar.innerText = "✏️ Editar";
+  btnEditar.onclick = () => editarArtigo(conteudoEl, btnEditar, tituloEl.innerText);
+
+  const btnExcluir = document.createElement("button");
+  btnExcluir.innerText = "🗑️ Excluir";
+  btnExcluir.onclick = () => {
+    removerArtigoDoStorage(tituloEl.innerText, conteudoEl.innerText);
+    artigo.remove();
+  };
+
+  botoes.appendChild(btnEditar);
+  botoes.appendChild(btnExcluir);
+
+  artigo.appendChild(tituloEl);
+  artigo.appendChild(conteudoEl);
+  artigo.appendChild(botoes);
+
+  lista.appendChild(artigo);
+}
+
+
+ // Carrega os artigos salvos ao abrir a página
+window.onload = function() {
+  const artigosSalvos = JSON.parse(localStorage.getItem("artigos")) || [];
+  artigosSalvos.forEach(a => adicionarArtigoNaTela(a.titulo, a.conteudo));
+};
+
+function adicionarArtigo() {
+  const titulo = document.getElementById("titulo").value.trim();
+  const conteudo = document.getElementById("conteudo").value.trim();
+
+  if (!titulo || !conteudo) {
+    alert("Preencha o título e o conteúdo!");
+    return;
+  }
+
+  // Adiciona na tela
+  adicionarArtigoNaTela(titulo, conteudo);
+
+  // Salva no LocalStorage
+  salvarArtigo(titulo, conteudo);
+
+  // Limpa os campos
+  document.getElementById("titulo").value = "";
+  document.getElementById("conteudo").value = "";
+}
+
+// Adiciona artigo na tela (reaproveitado para carregar do LocalStorage)
+function adicionarArtigoNaTela(titulo, conteudo) {
+  const lista = document.getElementById("listaArtigos");
+
+  const artigo = document.createElement("article");
+  artigo.classList.add("artigo");
+
+  const tituloEl = document.createElement("h3");
+  tituloEl.innerText = titulo;
+
+  const conteudoEl = document.createElement("p");
+  conteudoEl.innerText = conteudo;
+
+  const botoes = document.createElement("div");
+  botoes.classList.add("botoes");
+
+  const btnEditar = document.createElement("button");
+  btnEditar.innerText = "✏️ Editar";
+  btnEditar.onclick = () => editarArtigo(conteudoEl, btnEditar, tituloEl.innerText);
+
+  const btnExcluir = document.createElement("button");
+  btnExcluir.innerText = "🗑️ Excluir";
+  btnExcluir.onclick = () => {
+    removerArtigoDoStorage(tituloEl.innerText, conteudoEl.innerText);
+    artigo.remove();
+  };
+
+  botoes.appendChild(btnEditar);
+  botoes.appendChild(btnExcluir);
+
+  artigo.appendChild(tituloEl);
+  artigo.appendChild(conteudoEl);
+  artigo.appendChild(botoes);
+
+  lista.appendChild(artigo);
+}
+
+// Função para salvar artigo no LocalStorage
+function salvarArtigo(titulo, conteudo) {
+  const artigos = JSON.parse(localStorage.getItem("artigos")) || [];
+  artigos.push({ titulo, conteudo });
+  localStorage.setItem("artigos", JSON.stringify(artigos));
+}
+
+// Função para remover artigo do LocalStorage
+function removerArtigoDoStorage(titulo, conteudo) {
+  let artigos = JSON.parse(localStorage.getItem("artigos")) || [];
+  artigos = artigos.filter(a => !(a.titulo === titulo && a.conteudo === conteudo));
+  localStorage.setItem("artigos", JSON.stringify(artigos));
+}
+
+// Editar artigo
+function editarArtigo(paragrafo, botao, titulo) {
+  if (paragrafo.tagName === "TEXTAREA") return;
+
+  const textoAtual = paragrafo.innerText;
+  const textarea = document.createElement("textarea");
+  textarea.value = textoAtual;
+  textarea.classList.add("editavel");
+
+  paragrafo.replaceWith(textarea);
+
+  botao.innerText = "💾 Salvar";
+  botao.onclick = () => salvarEdicao(textarea, botao, titulo);
+}
+
+function salvarEdicao(textarea, botao, titulo) {
+  const novoTexto = textarea.value.trim();
+  const novoP = document.createElement("p");
+  novoP.innerText = novoTexto;
+
+  textarea.replaceWith(novoP);
+  botao.innerText = "✏️ Editar";
+  botao.onclick = () => editarArtigo(novoP, botao, titulo);
+
+  // Atualiza o LocalStorage
+  let artigos = JSON.parse(localStorage.getItem("artigos")) || [];
+  artigos = artigos.map(a => (a.titulo === titulo ? { titulo: a.titulo, conteudo: novoTexto } : a));
+  localStorage.setItem("artigos", JSON.stringify(artigos));
+}
+// Seleciona o botão
+const toggleButton = document.getElementById('theme-toggle');
+
+// Verifica se o usuário já tem um tema salvo no localStorage
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark-theme');
+  toggleButton.textContent = '☀️ Alternar Tema';
+}
+
+// Adiciona evento de clique
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+
+  // Atualiza o botão e salva a preferência
+  if (document.body.classList.contains('dark-theme')) {
+    toggleButton.textContent = '☀️ Alternar Tema';
+    localStorage.setItem('theme', 'dark');
+  } else {
+    toggleButton.textContent = '🌙 Alternar Tema';
+    localStorage.setItem('theme', 'light');
+  }
+});
+
 
