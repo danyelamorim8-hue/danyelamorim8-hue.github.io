@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login • Criador de Textos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0f0f1b;
+      color: #e0f7ff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .auth-container {
+      background: rgba(15, 15, 35, 0.7);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 50px 40px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 
+        0 0 40px rgba(0, 200, 255, 0.25),
+        0 0 80px rgba(158, 48, 169, 0.25);
+      border: 1px solid rgba(102, 224, 255, 0.35);
+      position: relative;
+      z-index: 10;
+    }
+
+    .auth-container::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, #06aed8, #9e30a9, #4090b5, #06aed8);
+      z-index: -1;
+      border-radius: 26px;
+      animation: borderRotate 8s linear infinite;
+    }
+
+    @keyframes borderRotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .logo {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #06aed8, #9fc4d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      background: linear-gradient(90deg, #06aed8, #9fc4d0);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #a0d2e8;
+      font-size: 0.95rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(102, 224, 255, 0.4);
+      background: rgba(0, 20, 40, 0.4);
+      color: #e0f7ff;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input:focus {
+      border-color: #06aed8;
+      box-shadow: 0 0 0 3px rgba(6, 174, 216, 0.2);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #06aed8, #4090b5);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ff6b6b;
+      border: 2px solid #ff6b6b;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 107, 107, 0.15);
+    }
+
+    .error {
+      color: #ff6b6b;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      display: none;
+    }
+
+    .switch-form {
+      margin-top: 24px;
+      color: #a0d2e8;
+      font-size: 0.95rem;
+    }
+
+    .switch-form a {
+      color: #06aed8;
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 6px;
+      cursor: pointer;
+    }
+
+    .switch-form a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .auth-container {
+        padding: 40px 25px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Tela de Login -->
+  <div id="loginSection" class="auth-container">
+    <div class="logo">🔒</div>
+    <h1>Login</h1>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginEmail">E-mail</label>
+        <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Senha</label>
+        <input type="password" id="loginPassword" placeholder="••••••••" required minlength="6">
+      </div>
+      <div class="error" id="loginError">E-mail ou senha incorretos.</div>
+      <button type="submit" class="btn btn-primary">Entrar</button>
+    </form>
+    <div class="switch-form">
+      Não tem conta? <a onclick="showRegister()">Criar conta</a>
+    </div>
+  </div>
+
+  <!-- Tela de Cadastro -->
+  <div id="registerSection" class="auth-container" style="display: none;">
+    <div class="logo">📝</div>
+    <h1>Criar Conta</h1>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="registerEmail">E-mail</label>
+        <input type="email" id="registerEmail" placeholder="seu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="registerPassword">Senha</label>
+        <input type="password" id="registerPassword" placeholder="Mínimo 6 caracteres" required minlength="6">
+      </div>
+      <div class="error" id="registerError"></div>
+      <button type="submit" class="btn btn-primary">Criar Conta</button>
+    </form>
+    <div class="switch-form">
+      Já tem conta? <a onclick="showLogin()">Fazer login</a>
+    </div>
+  </div>
+
+  <script>
+    function showLogin() {
+      document.getElementById('loginSection').style.display = 'block';
+      document.getElementById('registerSection').style.display = 'none';
+      document.getElementById('loginError').style.display = 'none';
+      document.getElementById('registerError').style.display = 'none';
+    }
+
+    function showRegister() {
+      document.getElementById('registerSection').style.display = 'block';
+      document.getElementById('loginSection').style.display = 'none';
+      document.getElementById('loginError').style.display = 'none';
+      document.getElementById('registerError').style.display = 'none';
+    }
+
+    function getAccounts() {
+      const accounts = localStorage.getItem('userAccounts');
+      return accounts ? JSON.parse(accounts) : [];
+    }
+
+    function saveAccounts(accounts) {
+      localStorage.setItem('userAccounts', JSON.stringify(accounts));
+    }
+
+    // Login
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const errorEl = document.getElementById('loginError');
+
+      const accounts = getAccounts();
+      const user = accounts.find(acc => acc.email === email && acc.password === password);
+
+      if (user) {
+        window.location.href = 'dashboard.html';
+      } else {
+        errorEl.style.display = 'block';
+        setTimeout(() => {
+          errorEl.style.display = 'none';
+        }, 3000);
+      }
+    });
+
+    // Cadastro
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('registerEmail').value.trim();
+      const password = document.getElementById('registerPassword').value;
+      const errorEl = document.getElementById('registerError');
+
+      if (password.length < 6) {
+        errorEl.textContent = "A senha deve ter pelo menos 6 caracteres.";
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      const accounts = getAccounts();
+      if (accounts.some(acc => acc.email === email)) {
+        errorEl.textContent = "Este e-mail já está cadastrado.";
+        errorEl.style.display = 'block';
+        return;
+      }
+
+      accounts.push({ email, password });
+      saveAccounts(accounts);
+      alert("Conta criada com sucesso!");
+      showLogin();
+    });
+  </script>
+</body>
+</html>
